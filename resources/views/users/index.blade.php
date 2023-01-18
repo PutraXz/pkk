@@ -1,59 +1,49 @@
-<?php $breadcrumb = '
-<li class="breadcrumb-item active"><span>Users</span></li>'; ?>
 @extends('layouts.app')
 
 @section('content')
-    <div class="card mb-4">
-        <div class="card-header">
-            {{ __('Users') }}
-            <a class="btn btn-success float-end" href="{{ route('users.create') }}"> Create New User</a>
-        </div>
+    <!-- Begin Page Content -->
+    <div class="container-fluid">
 
-        <div class="card-body">
+        <!-- Page Heading -->
+        <h1 class="h3 mb-2 text-gray-800">Users</h1>
+        <p class="mb-4">For more information about DataTables and use It here, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p>
 
-            @if ($message = Session::get('success'))
-                <div class="alert alert-success">
-                    <p>{{ $message }}</p>
+        <!-- DataTales Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Users Table</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email Address</th>
+                            <th>Created at</th>
+                            <th>Updated in</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        </tfoot>
+                        <tbody>
+                        @foreach($users as $user)
+                            <tr>
+                                <td>{{ $user->name }}</td>
+                                <td>{{ $user->email }}</td>
+                                <td>{{ $user->created_at }}</td>
+                                <td>{{ $user->updated_at->diffForhumans() }}</td>
+                            </tr>
+                        @endforeach
+                        </tbody>
+                    </table>
+
+                    {{ $users->links() }}
+
                 </div>
-            @endif
-
-            <table class="table table-bordered table-sm">
-                <tr>
-                    <th>No</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Roles</th>
-                    <th width="280px">Action</th>
-                </tr>
-
-                @foreach ($data as $key => $user)
-                    <tr>
-                        <td>{{ ++$i }}</td>
-                        <td>{{ $user->name }}</td>
-                        <td>{{ $user->email }}</td>
-                        <td>
-                            @if(!empty($user->getRoleNames()))
-                                @foreach($user->getRoleNames() as $v)
-                                    <label class="badge me-1 bg-success">{{ $v }}</label>
-                                @endforeach
-                            @endif
-                        </td>
-                        <td>
-                            <a class="btn btn-info btn-sm" href="{{ route('users.show',$user->id) }}">Show</a>
-                            <a class="btn btn-primary btn-sm" href="{{ route('users.edit',$user->id) }}">Edit</a>
-                            {!! Form::open(['method' => 'DELETE','route' => ['users.destroy', $user->id],'style'=>'display:inline']) !!}
-                            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!}
-                        </td>
-                    </tr>
-                @endforeach
-            </table>
-
-            {!! $data->render() !!}
+            </div>
         </div>
 
-{{--        <div class="card-footer">--}}
-{{--            {{ $users->links() }}--}}
-{{--        </div>--}}
     </div>
+    <!-- /.container-fluid -->
 @endsection

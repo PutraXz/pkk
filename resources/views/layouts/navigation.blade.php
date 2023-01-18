@@ -8,8 +8,25 @@
             {{ __('Dashboard') }}
         </a>
     </li>
-
-        <li class="nav-item">
+    @if (auth()->user()->level == "admin")
+        <li class="nav-item @if(request()->routeIs('users.index')) active @endif">
+            <a class="nav-link" href="{{ route('users.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
+                </svg>
+                {{ __('Users') }}
+            </a>
+        </li>
+        <li class="nav-item @if(request()->routeIs('product.show')) active @endif">
+            <a class="nav-link" href="{{ route('product.show') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
+                </svg>
+                {{ __('Product') }}
+            </a>
+        </li>
+    @endif
+        {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">
                 <svg class="nav-icon">
                     <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
@@ -34,7 +51,7 @@
                 </svg>
                 {{ __('Clients') }}
             </a>
-        </li>
+        </li> --}}
 
 {{--        <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>--}}
 
