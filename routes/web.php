@@ -14,6 +14,7 @@ use App\Http\Controllers\User\ShowOrder;
 use App\Http\Controllers\User\ShowProducts as UserShowProducts;
 use App\Http\Controllers\User\StoreShopping;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WebController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -28,14 +29,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+Auth::routes();
 Route::get('/', function () {
     return view('welcome');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/payment', WebController::class);
+Route::post('/payment', [WebController::class, 'pay']);
 Route::middleware('auth')->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::group(['middleware' => 'check-level:admin'], function (){
         Route::view('about', 'about')->name('about');
         Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
