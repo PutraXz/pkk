@@ -35,7 +35,7 @@
                                 <td>{{ $order->created_at->format('d-m-y') }}</td>
                                 <td>
                                     @foreach ($orderz as $item)
-                                        @if($item->transaction_status == 'pending')
+                                        @if($item->transaction_status != 'capture')
                                         Sudah Pesan & Belum dibayar
                                         @else
                                         Sudah dibayar 

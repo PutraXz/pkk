@@ -37,8 +37,9 @@ Route::get('/', function () {
 Route::get('/payment', WebController::class);
 Route::post('/payment', [WebController::class, 'pay']);
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::group(['middleware' => 'check-level:admin'], function (){
+        
+        Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
         Route::view('about', 'about')->name('about');
         Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
         Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
