@@ -15,15 +15,16 @@ class CheckShopping extends Controller
         $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->get();
         $db =  $shop->sum('jumlah_harga');
         $sum = $shop->sum('jumlah');
-        // Set your Merchant Server Key
-        \Midtrans\Config::$serverKey = 'SB-Mid-server-nZLapjhFwbJb6OkdVZPlcFLq';
+        foreach ($shop as $key) {
+        if ($key->status == 0){
+            \Midtrans\Config::$serverKey = 'SB-Mid-server-nZLapjhFwbJb6OkdVZPlcFLq';
         // Set to Development/Sandbox Environment (default). Set to true for Production Environment (accept real transaction).
         \Midtrans\Config::$isProduction = false;
         // Set sanitization on (default)
         \Midtrans\Config::$isSanitized = true;
         // Set 3DS transaction for credit card to true
         \Midtrans\Config::$is3ds = true;
-        foreach ($shop as $key) {
+
             $items = Products::where('id', $key->product_id)->firstOrFail();
             $params = array(
                 'transaction_details' => array(
@@ -50,7 +51,10 @@ class CheckShopping extends Controller
         
         
         $snapToken = \Midtrans\Snap::getSnapToken($params);
+        
         return view('users.check_out', compact('shop', 'db', 'snapToken'));
+        }
+        return view('users.no_check-out');
     }
     public function pay(Request $request){
         return $request;

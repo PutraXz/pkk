@@ -14,6 +14,9 @@ class User extends Authenticatable
     public function shopping(){
         return $this->hasMany(Shopping::class);
     }
+    public function order(){
+        return $this->hasMany(Order::class);
+    }
     use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**

@@ -63,6 +63,7 @@ class WebController extends Controller
         $order->transaction_status = $json->transaction_status;
         $order->payment_code = isset($json->payment_code) ? $json->payment_code : null;
         $order->pdf_url = isset($json->pdf_url) ? $json->pdf_url : null;
+        $order->user_id = Auth::user()->id;
         $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->firstOrFail();
         
         $shopp = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->get();

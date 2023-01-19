@@ -23,6 +23,8 @@ class CreateOrdersTable extends Migration
             $table->string('transaction_status');
             $table->string('payment_code')->nullable();
             $table->string('pdf_url')->nullable();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             
             $table->timestamps();
         });
