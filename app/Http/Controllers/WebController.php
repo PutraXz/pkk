@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\OrderRequest;
 use App\Models\Order;
+use App\Models\Products;
+use App\Models\Shopping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WebController extends Controller
 {
@@ -60,6 +63,28 @@ class WebController extends Controller
         $order->transaction_status = $json->transaction_status;
         $order->payment_code = isset($json->payment_code) ? $json->payment_code : null;
         $order->pdf_url = isset($json->pdf_url) ? $json->pdf_url : null;
-        return $order->save() ? redirect(url('/payment'))->with('alert-success', 'order berhasil') : redirect(url('/payment'))->with('alert-failed', 'order gagal');
+        $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->firstOrFail();
+        
+        $shopp = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->get();
+        foreach ($shopp as $item) {
+            $items = Products::where('id', $shop->product_id)->firstOrFail();
+            $items->stock = $items->stock - $item->jumlah;
+            $items->update(); 
+            $shop->status = 1;
+            $shop->update();
+        }
+        return $order->save() ? redirect(url('/order'))->with('alert-success', 'order berhasil') : redirect(url('/order'))->with('alert-failed', 'order gagal');
+    }
+    public function callback(Request $request){
+        $json = json_decode($request->getContent());
+        $serverKey = 'SB-Mid-server-nZLapjhFwbJb6OkdVZPlcFLq';
+        $hashed = hash("sha512", $json->order_id.$json->status_code.$json->gross_amount.$serverKey);
+        
+        if($hashed != $json->signature_key){
+            return abort(404);
+        }
+        // success
+        $order = Order::where('order_id', $json->order_id)->first();
+        return $order->update(['transaction_status' => $json->transaction_status]);
     }
 }

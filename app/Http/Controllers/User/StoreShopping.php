@@ -17,6 +17,8 @@ class StoreShopping extends Controller
         $shopp->product_id = $id;
         $shopp->user_id = Auth::id();
         $shopp->jumlah = $request->jumlah;
+        $shopp->nama_pelanggan = $request->nama_pelanggan;
+        $shopp->no_hp = $request->no_hp;
         $shopp->jumlah_harga = $product->price * $request->jumlah;
         $test = $shopp->save();
         return redirect('check-out');

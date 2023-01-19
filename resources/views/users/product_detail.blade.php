@@ -39,17 +39,32 @@
                                         <td> :</td>
                                         <td>{{($nani->description)}}</td>
                                     </tr>
+                                <form action="" method="post">
+                                @csrf
                                     <tr>
                                         <td>Jumlah Pesan</td>
                                         <td> :</td>
                                         <td>
-                                            <form action="" method="post">
-                                            @csrf
-                                                <input type="text" name="jumlah" class="form-control" required="">
-                                                <button type="submit" class="btn btn-primary mt-3"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
-                                            </form>
+                                           
+                                            <input type="number" name="jumlah" class="form-control" required="">
                                         </td>
                                     </tr>
+                                    <tr>
+                                        <td>Nama Pelanggan</td>
+                                        <td> :</td>
+                                        <td><input type="text" name="nama_pelanggan" class="form-control" required=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>No hp</td>
+                                        <td> :</td>
+                                        <td> <input type="text" name="no_hp" class="form-control" required=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <button type="submit" class="btn btn-primary mt-3"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
+                                        </td>
+                                    </tr>
+                                </form>
                                 </tbody>
                             </table>
                         </div>

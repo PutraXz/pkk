@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>{{ config('app.name', 'Laravel') }}</title>
     <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript"
+      src="https://app.sandbox.midtrans.com/snap/snap.js"
+      data-client-key="SB-Mid-client-giamupfJMz0g8ZOK"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -92,6 +95,7 @@
     <div class="body flex-grow-1 px-1">
         <div class="container" style="max-width: 100% !important;">
             @yield('content')
+            
         </div>
     </div>
     <footer class="footer">
@@ -101,6 +105,7 @@
                 Components</a></div>
     </footer>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>
 {{--<script src="{{ asset('js/coreui.bundle.min.js') }}"></script>--}}
 <script src="{{ asset('js/coreui.js') }}"></script>

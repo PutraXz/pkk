@@ -20,6 +20,8 @@ class CreateShoppingsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('status')->default(0);
+            $table->string('nama_pelanggan', 85);
+            $table->integer('no_hp');
             $table->integer('jumlah');
             $table->integer('jumlah_harga');
             $table->timestamps();

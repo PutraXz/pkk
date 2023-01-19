@@ -53,7 +53,8 @@ Route::middleware('auth')->group(function () {
         Route::get('/product', UserShowProducts::class);
         Route::get('/product/{id}', ProductDetail::class)->name('user.detail');
         Route::post('/product/{id}', StoreShopping::class);
-        Route::get('check-out', CheckShopping::class);
+        Route::get('check-out', CheckShopping::class)->name('check-out');
+        Route::post('check-out', [WebController::class, 'pay']);
         Route::get('confirm', ConfirmShopping::class);
         Route::delete('check-out/{id}', DeleteShopping::class);
         Route::get('/order', ShowOrder::class);

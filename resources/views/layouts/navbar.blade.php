@@ -82,6 +82,6 @@
 
     <!-- Page level custom scripts -->
     @yield('custom_scripts')
-
+    
 </body>
 </html>
