@@ -25,6 +25,14 @@
                 {{ __('Product') }}
             </a>
         </li>
+        <li class="nav-item @if(request()->routeIs('theme.show')) active @endif">
+            <a class="nav-link" href="{{ route('theme.show') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
+                </svg>
+                {{ __('Theme') }}
+            </a>
+        </li>
     @endif
         {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">

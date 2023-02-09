@@ -7,19 +7,16 @@ use App\Models\Products;
 use App\Models\Shopping;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use App\Models\Theme;
 class StoreShopping extends Controller
 {
     public function __invoke(Request $request, $id)
     {
-        $product = Products::find($id);
+        $theme = Theme::find($id);
         $shopp = new Shopping();
-        $shopp->product_id = $id;
+        $shopp->theme_id = $id;
         $shopp->user_id = Auth::id();
-        $shopp->jumlah = $request->jumlah;
-        $shopp->nama_pelanggan = $request->nama_pelanggan;
-        $shopp->no_hp = $request->no_hp;
-        $shopp->jumlah_harga = $product->price * $request->jumlah;
+        $shopp->jumlah_harga = $theme->price;
         $test = $shopp->save();
         return redirect('check-out');
     }

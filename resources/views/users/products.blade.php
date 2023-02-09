@@ -5,13 +5,13 @@
         <img src="{{url('logo2.png')}}" alt="" class="w-25 img-fluid mx-auto d-block">
         <div class="slider mt-3">
             <div id="owl-carousel" class="owl-carousel">
-                @foreach ($products as $product)
+                @foreach ($themes as $theme)
                 <div class="slider-card">
                     <div class=" justify-content-center align-items-center mb-4">
-                        <img src="{{url('products/'.$product->file)}}" alt="" >
-                        <h5 class="mt-3 text-center" style="color:black">{{$product->title}}</h5>
-                        <p class="text-center" style="color:black">{{$product->description}}</p>
-                        <a href="{{route('user.detail',$product->id)}}" class="btn btn-warning text-center d-block mx-auto mb-3">Detail</a>
+                        <img src="{{url('themes/'.$theme->preview)}}" alt="" >
+                        <h5 class="mt-3 text-center" style="color:black">{{$theme->name_theme}}</h5>
+                        <p class="text-center" style="color:black">{{$theme->price}}</p>
+                        <a href="{{route('user.detail',$theme->id)}}" class="btn btn-warning text-center d-block mx-auto mb-3">Detail</a>
                     </div>
                 </div>
                 @endforeach
