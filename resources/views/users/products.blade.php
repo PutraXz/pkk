@@ -1,8 +1,34 @@
 @extends('layouts.navbar')
 @section('content')
-
-    <div class="container mt-1">
-        <img src="{{url('logo2.png')}}" alt="" class="w-25 img-fluid mx-auto d-block">
+@include('sweetalert::alert')
+<section class="theme">
+        <div class="container">
+            <h2 class="pt-5 text-center">Theme On Website</h2>
+            <div class="row pb-5">
+                @foreach ($themes as $theme)
+                <div class="col-md-4 col-12 pt-4">
+                    <div class="card card-main">
+                        <img src="{{url('themes/'.$theme->preview)}}" alt="" class="card-img-top card-hover">
+                        <div class="rafflelink">
+                            <form action="" method="post">
+                                @csrf
+                                <input type="text" name="id" value="{{$theme->id}}">
+                                <button class="btn btn-secondary" type="submit">Buy Now</button>
+                            </form>
+                        </div>
+                        <div class="card-body">
+                            <h4>{{$theme->name_theme}}</h4>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+        </div>
+</section>
+<script>
+ 
+</script>
+        {{-- <img src="{{url('logo2.png')}}" alt="" class="w-25 img-fluid mx-auto d-block">
         <div class="slider mt-3">
             <div id="owl-carousel" class="owl-carousel">
                 @foreach ($themes as $theme)
@@ -16,11 +42,10 @@
                 </div>
                 @endforeach
             </div>
-        </div>
-    </div>
+        </div> --}}
     <script>
         $(".owl-carousel").owlCarousel({
-      loop:true,
+      loop:false,
         margin:10,
         nav:true,
         autoplay:true,

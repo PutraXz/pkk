@@ -65,15 +65,8 @@ class WebController extends Controller
         $order->pdf_url = isset($json->pdf_url) ? $json->pdf_url : null;
         $order->user_id = Auth::user()->id;
         $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->firstOrFail();
-        
-        $shopp = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->get();
-        foreach ($shopp as $item) {
-            $items = Products::where('id', $shop->product_id)->firstOrFail();
-            $items->stock = $items->stock - $item->jumlah;
-            $items->update(); 
-            $shop->status = 1;
-            $shop->update();
-        }
+        $shop->status = 1;
+        $shop->update();
         return $order->save() ? redirect(url('/order'))->with('alert-success', 'order berhasil') : redirect(url('/order'))->with('alert-failed', 'order gagal');
     }
     public function callback(Request $request){

@@ -9,14 +9,14 @@ class Shopping extends Model
 {
     use HasFactory;
     use HasFactory;
-    public function product(){
-        return $this->belongsTo(Products::class);
+    public function theme(){
+        return $this->belongsTo(Theme::class);
     }
     public function user(){
         return $this->belongsTo(User::class);
     }
     protected $table = 'shoppings';
     protected $primaryKey = 'id';
-    protected $fillable = ['product_id', 'user_id', 'status', 'shooping_id', 'jumlah', 'jumlah_harga'];
+    protected $fillable = ['theme_id', 'user_id', 'status', 'jumlah_harga'];
 
 }

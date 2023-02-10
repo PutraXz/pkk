@@ -29,40 +29,49 @@
 </head>
 
 <body id="page-top">
-    <nav class="navbar navbar-expand-md bg-light p-0">
+    <nav class="navbar navbar-expand-lg bg-light" style="background-color: #ffff !important;">
         <div class="container-fluid">
-            <a class="navbar-brand p-0 m-0">
-                <img src="{{url('logo.png')}}" alt="" class="w-25 ">
-            </a>
+            <a class="navbar-brand" href="#">Navbar</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse  w-100 order-3" id="navbarNavAltMarkup">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item dropdown" style="margin-right: 13vh">
-                        <a class="nav-link " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user" style="font-size: 22px"></i></i></a>
-                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
-                            <li>
-                                <a class="dropdown-item" href="{{url('/check-out')}}">Check Out</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="{{url('/order')}}">Order</a>
-                            </li>
-                            <li>
-                                <form method="POST" action="{{ route('logout') }}">
-                                    @csrf
-                                    <a href="{{ route('logout') }}" class="dropdown-item" 
-                                        onclick="event.preventDefault(); this.closest('form').submit();">
-                                        {{ __('Log Out') }}
-                                    </a>
-                                </form>
-                            </li>
-                        </ul>   
-                    </li>
-                </ul>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav  ms-auto mb-2 mb-lg-0 me-5">
+              @if (Route::has('login'))
+                  @auth
+                  <li class="nav-item dropdown" style="margin-right: 13vh">
+                    <a class="nav-link " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user" style="font-size: 22px"></i></i></a>
+                    <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
+                        <li>
+                            <a class="dropdown-item" href="{{url('/check-out')}}">Check Out</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{{url('/order')}}">Order</a>
+                        </li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="{{ route('logout') }}" class="dropdown-item" 
+                                    onclick="event.preventDefault(); this.closest('form').submit();">
+                                    {{ __('Log Out') }}
+                                </a>
+                            </form>
+                        </li>
+                    </ul>   
+                </li>
+                  @else
+                      <a class="nav-link" href="{{ route('login') }}">Log in</a>
+                      @if (Route::has('register'))
+                          <a class="nav-link" href="{{ route('register') }}">Register</a>
+                      @endif
+                  @endauth
+              </div>
+          @endif
+            </div>
             </div>
         </div>
     </nav>
+    
     <!-- Page Wrapper -->
     <div id="wrapper">
 

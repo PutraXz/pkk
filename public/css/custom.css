@@ -28,6 +28,7 @@
     --cui-sidebar-toggler-indicator: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='rgba(44, 56, 74, 0.681)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E");
     --cui-sidebar-toggler-indicator-hover: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='rgba(44, 56, 74, 0.95)' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E");
 }
+
 .modal-mask {
     position: fixed;
     z-index: 9998;
@@ -139,3 +140,77 @@
 
 
 /* close carousel */
+
+.preview,
+.why {
+    background: url('/products/bg.png') #1c1a1a;
+}
+
+.theme,
+.sayThey {
+    background-color: #eee;
+}
+
+
+/* card hover */
+
+
+/* .card:hover {
+    filter: blur(2px);
+    transform: scale(0.9);
+    opacity: 0.5;
+} */
+
+
+/* .overlay {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 40%;
+}
+
+
+
+.overlay-content:hover {
+    -webkit-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+    opacity: 1;
+    filter: alpha(opacity=0);
+    color: #bbb19c;
+    text-transform: uppercase;
+}
+
+.card-hover:hover {
+    filter: blur(2px);
+    opacity: 0.5;
+} */
+
+.card-main>.rafflelink {
+    top: 13rem;
+    position: absolute;
+    align-self: center;
+    justify-self: center;
+    z-index: 2;
+    opacity: 0;
+}
+
+.card-main:hover>.rafflelink {
+    opacity: 1;
+    filter: none;
+}
+
+.card-main:hover>.card-body {
+    filter: none;
+}
+
+.card-main:hover>* {
+    webkit-filter: blur(2px);
+    /* Chrome, Safari, Opera */
+    filter: blur(2px);
+}
+
+.test-notice {
+    display: none !important;
+}

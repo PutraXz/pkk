@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class MultipleUpload extends Model
 {
     use HasFactory;
+    protected $table = 'multiple_uploads';
+    protected $primaryKey = 'id';
+    protected $fillable = ['filename', 'name_url'];
 }

@@ -13,14 +13,19 @@ use App\Http\Controllers\User\Theme\DetailController;
 use App\Http\Controllers\ClientController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\User\CheckShopping;
+use App\Http\Controllers\User\ToChartController;
 use App\Http\Controllers\User\ConfirmShopping;
 use App\Http\Controllers\User\DeleteShopping;
 use App\Http\Controllers\User\ProductDetail;
 use App\Http\Controllers\User\ShowOrder;
 use App\Http\Controllers\User\ShowProducts as UserShowProducts;
 use App\Http\Controllers\User\StoreShopping;
+use App\Http\Controllers\User\Wedding\WeddingController;
+use App\Http\Controllers\User\Wedding\WeddingUpload;
+use App\Http\Controllers\User\Wedding\GreetStore;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WebController;
+use App\Http\Controllers\ShowWedding;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -43,32 +48,36 @@ Route::get('/', function () {
 Route::get('/payment', WebController::class);
 Route::post('/payment', [WebController::class, 'pay']);
 Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::group(['middleware' => 'check-level:admin'], function (){
-        
-        Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
         Route::view('about', 'about')->name('about');
         Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
         Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
         Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-        Route::get('admin/product', ShowProducts::class)->name('product.show');
-        Route::post('admin/product', UploadProducts::class)->name('product.upload');
-        Route::get('admin/product/{id}', EditProducts::class)->name('product.edit');
-        Route::post('admin/product/{id}',[EditProducts::class, 'update'])->name('product.update');
-        Route::delete('admin/product/{id}', DeleteProducts::class)->name('product.delete');
-        Route::get('admin/themes', ShowController::class)->name('theme.show');
-        Route::post('admin/themes', UploadController::class)->name('theme.upload');
-        Route::get('admin/themes/{id}', EditController::class)->name('theme.edit');
-        Route::post('admin/themes/{id}',[EditController::class, 'update'])->name('theme.update');
-        Route::delete('admin/themes/{id}', DeleteController::class)->name('theme.delete');
+        Route::get('dashboard/admin/product', ShowProducts::class)->name('product.show');
+        Route::post('dashboard/admin/product', UploadProducts::class)->name('product.upload');
+        Route::get('dashboard/admin/product/{id}', EditProducts::class)->name('product.edit');
+        Route::post('dashboard/admin/product/{id}',[EditProducts::class, 'update'])->name('product.update');
+        Route::delete('dashboard/admin/product/{id}', DeleteProducts::class)->name('product.delete');
+        Route::get('dashboard/admin/themes', ShowController::class)->name('theme.show');
+        Route::post('dashboard/admin/themes', UploadController::class)->name('theme.upload');
+        Route::get('dashboard/admin/themes/{id}', EditController::class)->name('theme.edit');
+        Route::post('dashboard/admin/themes/{id}',[EditController::class, 'update'])->name('theme.update');
+        Route::delete('dashboard/admin/themes/{id}', DeleteController::class)->name('theme.delete');
     });
     Route::group(['middleware' => 'check-level:user'], function (){
         Route::get('/product', UserShowTheme::class);
-        Route::get('/product/{id}', DetailController::class)->name('user.detail');
-        Route::post('/product/{id}', StoreShopping::class);
-        Route::get('check-out', CheckShopping::class)->name('check-out');
+        Route::post('/product', ToChartController::class);
+        Route::get('/check-out', CheckShopping::class)->name('check-out');
         Route::post('check-out', [WebController::class, 'pay']);
         Route::get('confirm', ConfirmShopping::class);
         Route::delete('check-out/{id}', DeleteShopping::class);
         Route::get('/order', ShowOrder::class);
+        // setting wedding
+        Route::get('dashboard/setting-wedding', WeddingController::class)->name('wedding.index');
+        Route::post('dashboard/setting-wedding', WeddingUpload::class);;
     });
 });
+Route::get('/wedding/{slug}', ShowWedding::class);
+Route::post('/wedding/{slug}', GreetStore::class)->name('greets.store');

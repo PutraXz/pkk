@@ -34,6 +34,16 @@
             </a>
         </li>
     @endif
+    @if (auth()->user()->level == "user")
+        <li class="nav-item @if(request()->routeIs('wedding.index')) active @endif">
+            <a class="nav-link" href="{{ route('wedding.index') }}">
+                <svg class="nav-icon">
+                    <use xlink:href="{{ asset('icons/coreui.svg#cil-user') }}"></use>
+                </svg>
+                {{ __('Setting Wedding') }}
+            </a>
+        </li>
+    @endif
         {{-- <li class="nav-item">
             <a class="nav-link" href="{{ route('users.index') }}">
                 <svg class="nav-icon">

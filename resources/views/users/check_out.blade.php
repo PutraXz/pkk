@@ -26,7 +26,6 @@ data-client-key="SB-Mid-client-giamupfJMz0g8ZOK"></script>
                         <thead>
                             <tr>
                                 <th>No</th>
-                                <th>Gambar</th>
                                 <th>Nama Barang</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
@@ -39,12 +38,9 @@ data-client-key="SB-Mid-client-giamupfJMz0g8ZOK"></script>
                             @foreach($shop as $product)
                             <tr>
                                 <td>{{ $no++ }}</td>
-                                <td>
-                                    <img src="{{ url('products') }}/{{ $product->product->file }}" width="100" alt="...">
-                                </td>
-                                <td>{{ $product->product->title }}</td>
+                                <td>{{ $product->theme->name_theme }}</td>
                                 <td>{{ $product->jumlah }} pcs</td>
-                                <td align="right">Rp. {{ number_format($product->product->price) }}</td>
+                                <td align="right">Rp. {{ number_format($product->theme->price) }}</td>
                                 <td align="right">Rp. {{ number_format($product->jumlah_harga) }}</td>
                                 <td>
                                     <form action="{{ url('check-out') }}/{{ $product->id }}" method="post">
@@ -64,6 +60,19 @@ data-client-key="SB-Mid-client-giamupfJMz0g8ZOK"></script>
                                 </td>
                             </tr>   
                         </tbody>
+                    </table>
+                    @elseif(empty($shop))
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nama Barang</th>
+                                <th>Jumlah</th>
+                                <th>Harga</th>
+                                <th>Total Harga</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
                     </table>
                     @endif
                 </div>

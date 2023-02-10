@@ -98,12 +98,6 @@
             
         </div>
     </div>
-    <footer class="footer">
-        <div> <a href="#">laraStarterAdmin</a>  &copy; 2021
-        </div>
-        <div class="ms-auto">Powered by&nbsp;<a href="https://coreui.io/bootstrap/ui-components/">CoreUI UI
-                Components</a></div>
-    </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" crossorigin="anonymous"></script>

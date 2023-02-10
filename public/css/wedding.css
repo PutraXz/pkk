@@ -1,0 +1,940 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Yanone Kaffeesatz", Arial, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7;
+    color: #828282;
+}
+
+body.model {
+    overflow: hidden;
+}
+
+body section {}
+
+#overlay {
+    background: #ffffff;
+    background-image: url("/images/zoom-enchanted-forest-wedding-background.jpg");
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2000;
+    overflow-y: hidden !important;
+}
+
+#overlay .content {
+    background: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: 2001;
+    top: 0;
+    overflow-y: hidden !important;
+}
+
+#float-calender,
+#float-couple,
+#float-event,
+#float-galery,
+#float-ayat,
+#ffloat-protocol,
+#float-guest,
+#float-footer {
+    padding: 3em 0;
+    clear: both;
+}
+
+@media screen and (max-width: 768px) {
+    #float-calender,
+    #float-couple,
+    #float-event,
+    #float-galery,
+    #float-ayat,
+    #ffloat-protocol,
+    #float-guest,
+    #float-footer {
+        padding: 3em 0;
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #float-couple h2 {
+        font-size: 28px;
+    }
+}
+
+.couple-half .groom img,
+.couple-half .bride img {
+    width: 150px;
+    height: 150px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.couple-half .groom,
+.couple-half .bride {
+    float: left;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+}
+
+@media screen and (max-width: 480px) {
+    .couple-half .groom,
+    .couple-half .bride {
+        width: 100%;
+        height: 140px;
+    }
+    .couple-half .groom img,
+    .couple-half .bride img {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .couple-half .groom,
+    .couple-half .bride {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .couple-half .desc-groom {
+        padding-right: 0 !important;
+        text-align: center !important;
+    }
+    .couple-half .desc-bride {
+        padding-left: 0 !important;
+        text-align: center !important;
+    }
+}
+
+@media screen and (min-width:320px) and (max-width: 480.98px) {
+    #float-event {
+        display: block !important;
+    }
+    #float-calender {
+        overflow: hidden;
+    }
+    #float-calender .img-one {
+        width: 70% !important;
+        bottom: -3vh !important;
+        transform: translate(1%, -10%) !important;
+    }
+    #float-calender .img-two {
+        width: 70%!important;
+        top: 1vh!important;
+        transform: translate(40%, -5%)!important;
+    }
+    #float-calender h2 {
+        font-size: 40px;
+    }
+    #float-footer {
+        overflow: hidden;
+    }
+    #float-footer .img-one {
+        width: 62% !important;
+        bottom: -3vh !important;
+        transform: translate(21%, -10%) !important;
+    }
+    #float-footer .img-two {
+        width: 62%!important;
+        top: 1vh!important;
+        transform: translate(40%, -5%)!important;
+    }
+    #float-footer h2 {
+        font-size: 40px;
+    }
+    #countdown {
+        width: 283px;
+        padding: 0 2px 0 34px;
+        display: block !important;
+    }
+    #countdown .hari {
+        margin-bottom: 10px;
+    }
+    #float-protocol h2 {
+        font-size: 40px !important;
+    }
+    #float-event .event-wrap {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    #float-guest h2 {
+        font-size: 40px !important;
+    }
+    #float-guest p {
+        font-size: 14px;
+    }
+    .carousel-inner {
+        padding: 7em 0 !important;
+    }
+    .carousel {
+        height: 438px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .carousel {
+        height: 358px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    #float-event {
+        display: block !important;
+    }
+    .couple-half {
+        width: 100% !important;
+    }
+    .couple-wrap {
+        width: 100% !important;
+    }
+    #float-calender {
+        overflow: hidden;
+    }
+    #float-calender img {
+        margin-top: 0 !important;
+    }
+    #float-calender .img-one {
+        width: 70%;
+        bottom: 1vh;
+        transform: translate(3%, 5%);
+    }
+    #float-calender .img-two {
+        width: 70%;
+        top: 1vh;
+        transform: translate(40%, -5%);
+    }
+    #float-calender h2 {
+        font-size: 40px;
+    }
+    #float-footer {
+        overflow: hidden;
+    }
+    #float-footer img {
+        margin-top: 0 !important;
+    }
+    #float-footer .img-one {
+        width: 40%;
+        bottom: 1vh;
+        transform: translate(59%, -73%);
+    }
+    #float-footer .img-two {
+        width: 40%;
+        top: 1vh;
+        transform: translate(90%, -5%);
+    }
+    #float-footer h2 {
+        font-size: 40px;
+    }
+    #float-event .event-wrap {
+        margin-bottom: 10px;
+    }
+    #float-event {
+        height: inherit;
+        padding: 7em 0;
+    }
+    .carousel-item .img {
+        width: 70%;
+    }
+    .carousel-inner {
+        padding: 7em 0;
+    }
+    .carousel {
+        height: 568px;
+    }
+    #countdown {
+        width: 283px;
+        padding: 0 2px 0 34px;
+        display: block !important;
+    }
+    #countdown .hari {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (min-width:505px) and (max-width: 928.98px) {
+    #float-footer p {
+        width: 90%;
+        margin: 0 auto;
+        display: block;
+    }
+    #float-footer .img-one {
+        width: 62% !important;
+        bottom: -3vh !important;
+        transform: translate(21%, -10%) !important;
+    }
+    #float-footer .img-two {
+        width: 62%!important;
+        top: 1vh!important;
+        transform: translate(40%, -5%)!important;
+    }
+    .carousel-inner {
+        padding: 7em 0 !important;
+    }
+    .carousel {
+        height: 568px !important;
+    }
+}
+
+.couple-half {
+    width: 100%;
+}
+
+.couple-wrap {
+    margin: 0 auto;
+    position: relative;
+    width: 90%;
+}
+
+.couple-half .groom {
+    float: right;
+    margin-right: 5px;
+}
+
+.couple-half .bride {
+    float: left;
+    margin-left: 5px;
+}
+
+.section-one {
+    background: #7FBCD2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.section-eight {
+    background: #7FBCD2;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    overflow: hidden;
+}
+
+.img-one {
+    bottom: 82px;
+    left: 50%;
+    position: absolute;
+    transform: translate(13%, 37%);
+}
+
+.img-two {
+    position: absolute;
+    top: -82px;
+    left: -50%;
+    transform: translate(44%, -1%);
+}
+
+h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: normal;
+    color: #243A73;
+    font-family: "Satisfy", Arial, serif;
+}
+
+section {
+    margin: 0 auto;
+    line-height: 24px;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+ul {
+    list-style-type: none;
+    margin-bottom: 0;
+    margin-left: 0;
+}
+
+li {
+    display: inline-block;
+    margin-right: 2rem;
+    width: 6rem;
+}
+
+.timenumbers {
+    display: block;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+p.timedescription {
+    font-size: 1.2rem;
+    line-height: 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 0px;
+}
+
+li,
+.hari {
+    color: azure;
+    background-color: rgba(17, 52, 104, 0.8);
+    width: 90px;
+    height: 90px;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    position: relative;
+    animation: pulse 1s ease infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+/*Mobile*/
+
+@media (max-width:768px) {
+    .flower-one-left {
+        position: absolute;
+        left: -30px;
+        height: 200px;
+        bottom: 0;
+    }
+    .flower-one-right {
+        position: absolute;
+        right: -20px;
+        height: 200px;
+    }
+}
+
+@media (min-width: 768px) {
+    .flower-one-left {
+        position: absolute;
+        margin-top: 100px;
+        height: 60%;
+        left: -120px;
+    }
+    .flower-one-right {
+        position: absolute;
+        margin-top: 100px;
+        height: 60%;
+        right: -120px;
+    }
+}
+
+.float-couple>h2 {
+    font-size: 30px;
+}
+
+.float-couple p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+.couple-half {
+    width: 50%;
+    float: left;
+}
+
+.couple {
+    width: 30%;
+}
+
+.couple-half .desc-groom {
+    padding-right: 180px;
+    text-align: right;
+}
+
+.couple-half h3 {
+    font-family: "Sacramento", Arial, serif;
+    color: #113468;
+    font-size: 30px;
+}
+
+.parents-font {
+    font-family: "Estonia", Arial, serif;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.couple-half .desc-bride {
+    padding-left: 180px;
+    text-align: left;
+}
+
+.section-two {
+    background: url('/images/so-white.png');
+    background-repeat: repeat;
+    padding: 30px;
+    height: 479px;
+}
+
+.section-three {
+    margin-top: 10vh;
+    width: 100%;
+    float: left;
+    background: rgb(218, 241, 245);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.section-three h1 {
+    color: #113468;
+}
+
+.section-one h2 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #243A73;
+    font-family: "Dancing Script", Arial, serif
+}
+
+.section-one p {
+    color: #3A4668;
+}
+
+#countdown p {
+    color: #fff;
+    font-weight: 300;
+}
+
+.section-two h2 {
+    font-size: 38px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    color: #113468;
+    font-family: "Dancing Script", Arial, serif;
+}
+
+#float-event .event-wrap {
+    background: url('/images/so-white.png');
+    background-size: cover;
+    padding: 30px;
+    width: 100%;
+    float: left;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    border-radius: 4px;
+    box-shadow: 0px 7px 6px #ccc;
+}
+
+#float-event .event-wrap h3 {
+    font-size: 20px;
+    color: #113468;
+    border-bottom: 1px solid rgba(17, 52, 104, 0.5);
+    display: block;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+}
+
+#float-event .event-wrap .event-col {
+    width: 50%;
+    float: left;
+    margin-bottom: 30px;
+}
+
+#float-event .event-wrap i {
+    font-size: 20px;
+}
+
+#float-event .event-wrap span {
+    display: block;
+}
+
+#float-event {
+    float: left;
+}
+
+.section-four {
+    background: url('/images/so-white.png');
+    background-repeat: repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-top {
+    height: 300px;
+    top: 82px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+.image-bottom {
+    height: 300px;
+    bottom: 50px;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    position: absolute;
+}
+
+#float-ayat {
+    background-color: #113468;
+    color: #ffffff;
+    font-size: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+#float-ayat .ayat-content {
+    padding: 7em 0;
+}
+
+#float-protocol {
+    background-color: rgb(218, 241, 245)
+}
+
+#float-protocol h2 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #113468;
+    font-family: "Dancing Script", Arial, serif;
+}
+
+#float-protocol .icon {
+    width: 54px;
+    height: 54px;
+    background: #4d6b92;
+    display: table;
+    text-align: center;
+    -webkit-box-shadow: 0px 14px 30px -15px rgb(0 0 0 / 75%);
+    -moz-box-shadow: 0px 14px 30px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 14px 30px -15px rgb(0 0 0 / 75%);
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    border-radius: 50%;
+    margin: 0 auto;
+}
+
+#float-guest {
+    background: url('/images/so-white.png');
+    background-size: cover;
+    background-repeat: repeat;
+}
+
+#float-guest h2 {
+    font-size: 60px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    font-weight: bold;
+    color: #113468;
+    font-family: "Dancing Script", Arial, serif;
+}
+
+#carousel {
+    overflow: hidden;
+    width: 600px;
+    height: 400px;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+.p-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.4s ease-in-out;
+}
+
+#button_a:checked~#carousel .p-wrapper {
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+}
+
+#button_b:checked~#carousel .p-wrapper {
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+}
+
+#button_c:checked~#carousel .p-wrapper {
+    -webkit-transform: translateY(-200%);
+    transform: translateY(-200%);
+}
+
+#button_d:checked~#carousel .p-wrapper {
+    -webkit-transform: translateY(-300%);
+    transform: translateY(-300%);
+}
+
+[class^="panel_"] {
+    overflow: auto;
+    position: relative;
+    width: inherit;
+    height: inherit;
+}
+
+.item-list {
+    background: url('/images/so-white.png');
+    background-size: cover;
+    height: 30%;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    box-shadow: 0px 7px 6px #ccc;
+}
+
+iframe {
+    display: none;
+}
+
+.animated {
+    animation: fadeIn 5s;
+    -webkit-animation: fadeIn 5s;
+    -moz-animation: fadeIn 5s;
+    -o-animation: fadeIn 5s;
+    -ms-animation: fadeIn 5s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-ms-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+}
+
+.reveal.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
+/* Navigation */
+
+
+/*=============== GOOGLE FONTS ===============*/
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+    /*========== Colors ==========*/
+    --first-color: hsl(231, 48%, 56%);
+    --title-color: hsl(231, 24%, 20%);
+    --text-color: hsl(231, 4%, 45%);
+    --body-color: hsl(231, 100%, 99%);
+    --container-color: #fff;
+    /*========== Font and typography ==========*/
+    --body-font: 'Poppins', sans-serif;
+    --tiny-font-size: .625rem;
+}
+
+@media screen and (min-width: 968px) {
+     :root {
+        --tiny-font-size: .688rem;
+    }
+}
+
+
+/*=============== BASE ===============*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--body-color);
+    color: var(--text-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*=============== NAVBAR ===============*/
+
+.nav {
+    z-index: 99;
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    width: 328px;
+    height: 68px;
+    background-color: var(--container-color);
+    box-shadow: 0 8px 32px hsla(231, 44%, 45%, .2);
+    margin: 0 auto;
+    padding: 1rem .5rem;
+    border-radius: .65rem;
+    overflow: hidden;
+}
+
+.nav__list {
+    display: flex;
+    justify-content: center;
+    column-gap: 2rem;
+}
+
+.nav__link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.nav__link i {
+    font-size: 1.5rem;
+    color: var(--title-color);
+    z-index: 20;
+    transition: .3s;
+}
+
+.nav__name {
+    font-size: var(--tiny-font-size);
+    position: absolute;
+    font-weight: 500;
+    transition: .4s;
+    transform: translateY(50px);
+    z-index: 20;
+    color: var(--body-color);
+    opacity: 0;
+}
+
+
+/* Indicator link */
+
+.indicator {
+    position: absolute;
+    left: 5px;
+    bottom: 0;
+    fill: var(--first-color);
+    transition: .3s;
+}
+
+
+/* Active link */
+
+.active-link i {
+    color: var(--body-color);
+}
+
+.active-link .nav__name {
+    opacity: 1;
+    transform: translateY(33px);
+}
+
+
+/* Move indicator */
+
+.nav__link:nth-child(1).active-link~.indicator {
+    transform: translateX(calc(56px * 0));
+}
+
+.nav__link:nth-child(2).active-link~.indicator {
+    transform: translateX(calc(56px * 1));
+}
+
+.nav__link:nth-child(3).active-link~.indicator {
+    transform: translateX(calc(56px * 2));
+}
+
+.nav__link:nth-child(4).active-link~.indicator {
+    transform: translateX(calc(56px * 3));
+}
+
+.nav__link:nth-child(5).active-link~.indicator {
+    transform: translateX(calc(56px * 4));
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+
+
+/* For small devices */
+
+@media screen and (max-width: 320px) {
+    .nav {
+        zoom: .8;
+    }
+}
+
+
+/* For large devices */

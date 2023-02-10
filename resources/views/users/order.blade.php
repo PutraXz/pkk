@@ -34,14 +34,7 @@
                                 <td>{{ $no++ }}</td>
                                 <td>{{ $order->created_at->format('d-m-y') }}</td>
                                 <td>
-                                    @foreach ($orderz as $item)
-                                        @if($item->transaction_status != 'capture')
-                                        Sudah Pesan & Belum dibayar
-                                        @else
-                                        Sudah dibayar 
-                                        @endif
-                                    @endforeach
-                                    
+                                    Sudah Dibayar
                                 </td>
                                 <td>Rp. {{ number_format($order->jumlah_harga) }}</td>
                                 <td>
