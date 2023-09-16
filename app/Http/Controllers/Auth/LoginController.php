@@ -46,7 +46,7 @@ class LoginController extends Controller
         ]);
         if(auth()->attempt(['email'=>$input['email'], 'password'=>$input['password']])){
             if(auth()->user()->level == 'admin'){
-                return redirect('/admin');
+                return redirect('/dashboard');
             }else{
                 return redirect('/product');
             }

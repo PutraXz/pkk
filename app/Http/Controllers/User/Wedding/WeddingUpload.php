@@ -45,7 +45,7 @@ class WeddingUpload extends Controller
                 $files = [];
                 foreach ($request->filename as $file) {
                     $filenames = round(microtime(true) * 1000).'-'.str_replace(' ','-',$file->getClientOriginalName());
-                    $file->move(public_path('images/data-images'), $filenames);
+                    $file->move(base_path('public_html/images/data-images'), $filenames);
                     $files[] = [
                         'filename' => $file,
                         'name_url' => Str::slug($request->url, '-'),

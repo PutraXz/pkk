@@ -12,7 +12,7 @@ class UploadProducts extends Controller
     public function __invoke(StoreUploadRequest $request)
     {
         $filename = time().'.'.$request->file->getClientOriginalName();
-            $request->file->move(public_path('products'), $filename);
+            $request->file->move(base_path('public_html/products'), $filename);
             $reqEnd = $request->toArray();
             $reqEnd['file'] = $filename;
             $reqEnd['slug'] = str_slug($request->title);

@@ -11,7 +11,7 @@ class UploadController extends Controller
 {
     public function __invoke(ThemeRequest $request){
         $filename = time().'.'.$request->preview->getClientOriginalName();
-            $request->preview->move(public_path('themes'), $filename);
+            $request->preview->move(base_path('public_html/themes'), $filename);
             $reqEnd = $request->toArray();
             $reqEnd['preview'] = $filename;
             $reqEnd['kode_theme'] = Str::random(8);
