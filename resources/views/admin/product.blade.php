@@ -37,7 +37,7 @@
                                 <td>{{ $product->description }}</td>
                                 <td>{{ $product->category}}</td>
                                 <td><a href="{{route('product.edit',$product->id)}}">Edit</a> |
-                                <form method="POST" action="{{ url('admin/product')}}/{{$product->id}}" style="display: inline-block;">
+                                <form method="POST" action="{{ url('dashboard/admin/product')}}/{{$product->id}}" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn hapus" onclick="return confirm('Hapus Data?')" style="color: #d31c4a;font-size:16px">Delete</button>

@@ -23,7 +23,7 @@
                       </div>
                   </div>
               <div class="modal-footer">
-                  <a href="{{ url('/admin/themes') }}" class="btn btn-primary">Go Back</a>
+                  <a href="{{ url('dashboard/admin/themes') }}" class="btn btn-primary">Go Back</a>
                   <button class="modal-default-button btn btn-primary mx-2" type="submit">Save</button>
               </div>
           </form>

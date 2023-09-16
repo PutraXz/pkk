@@ -35,7 +35,7 @@
                                 <td>{{ $theme->price }}</td>
                                 <td>{{ $theme->preview }}</td>
                                 <td><a href="{{route('theme.edit',$theme->id)}}">Edit</a> |
-                                <form method="POST" action="{{ url('admin/themes')}}/{{$theme->id}}" style="display: inline-block;">
+                                <form method="POST" action="{{ url('dashboard/admin/themes')}}/{{$theme->id}}" style="display: inline-block;">
                                     @csrf
                                     @method('DELETE')
                                     <button class="btn hapus" onclick="return confirm('Hapus Data?')" style="color: #d31c4a;font-size:16px">Delete</button>
