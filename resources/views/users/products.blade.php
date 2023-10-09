@@ -12,7 +12,7 @@
                         <div class="rafflelink">
                             <form action="" method="post">
                                 @csrf
-                                <input type="text" name="id" value="{{$theme->id}}">
+                                <input type="hidden" name="id" value="{{$theme->id}}">
                                 <button class="btn btn-secondary" type="submit">Buy Now</button>
                             </form>
                         </div>

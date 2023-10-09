@@ -1,9 +1,5 @@
 <?php
 
-use App\Http\Controllers\Admin\DeleteProducts;
-use App\Http\Controllers\Admin\EditProducts;
-use App\Http\Controllers\Admin\ShowProducts;
-use App\Http\Controllers\Admin\UploadProducts;
 use App\Http\Controllers\Admin\Theme\ShowController;
 use App\Http\Controllers\Admin\Theme\EditController;
 use App\Http\Controllers\Admin\Theme\UploadController;
@@ -55,11 +51,6 @@ Route::middleware('auth')->group(function () {
         Route::get('users', [\App\Http\Controllers\UserController::class, 'index'])->name('users.index');
         Route::get('profile', [\App\Http\Controllers\ProfileController::class, 'show'])->name('profile.show');
         Route::put('profile', [\App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
-        Route::get('dashboard/admin/product', ShowProducts::class)->name('product.show');
-        Route::post('dashboard/admin/product', UploadProducts::class)->name('product.upload');
-        Route::get('dashboard/admin/product/{id}', EditProducts::class)->name('product.edit');
-        Route::post('dashboard/admin/product/{id}',[EditProducts::class, 'update'])->name('product.update');
-        Route::delete('dashboard/admin/product/{id}', DeleteProducts::class)->name('product.delete');
         Route::get('dashboard/admin/themes', ShowController::class)->name('theme.show');
         Route::post('dashboard/admin/themes', UploadController::class)->name('theme.upload');
         Route::get('dashboard/admin/themes/{id}', EditController::class)->name('theme.edit');

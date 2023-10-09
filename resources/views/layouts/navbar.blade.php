@@ -42,12 +42,19 @@
                   <li class="nav-item dropdown" style="margin-right: 13vh">
                     <a class="nav-link " href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false"> <i class="fas fa-user" style="font-size: 22px"></i></i></a>
                     <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarScrollingDropdown">
-                        <li>
-                            <a class="dropdown-item" href="{{url('/check-out')}}">Check Out</a>
-                        </li>
-                        <li>
-                            <a class="dropdown-item" href="{{url('/order')}}">Order</a>
-                        </li>
+                        @if (auth()->user()->level == "admin")
+                            <li>
+                                <a class="dropdown-item" href="{{url('/dashboard')}}">Dashboard</a>
+                            </li>
+                        @endif
+                        @if (auth()->user()->level == "user")
+                            <li>
+                                <a class="dropdown-item" href="{{url('/check-out')}}">Check Out</a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="{{url('/order')}}">Order</a>
+                            </li>
+                        @endif
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf

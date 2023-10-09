@@ -31,8 +31,8 @@
 </head>
 <body>
 <div class="sidebar sidebar-light sidebar-fixed" id="sidebar">
-    <div class="sidebar-brand d-none d-md-flex">
-        laraStarterAdmin
+    <div class="sidebar-brand text-center d-none d-md-flex">
+        Panel Wedding
     </div>
     @include('layouts.navigation')
     <button class="sidebar-toggler" type="button" data-coreui-toggle="unfoldable"></button>
