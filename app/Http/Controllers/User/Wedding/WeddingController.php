@@ -9,10 +9,13 @@ use App\Models\Shopping;
 class WeddingController extends Controller
 {
     public function __invoke(){
-        $thems = Shopping::where('status', 1)->where('user_id', Auth::user()->id)->get();
-        $them = Shopping::where('status', 1)->where('user_id', Auth::user()->id)->first();
-        if($them->status == 1){
-        return view('users.dashboard-wedding', compact('thems'));
+        $getStatus= [];
+        $get = Shopping::where('user_id', Auth::id())->get();
+        foreach ($get as $status) {
+            $getStatus = $status;
+        }
+        if($getStatus->status != 0){
+            return view('users.dashboard-wedding', compact('getStatus'));
         }else{
             return view('errors.404');
         }

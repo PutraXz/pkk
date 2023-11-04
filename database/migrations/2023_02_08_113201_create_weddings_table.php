@@ -25,7 +25,10 @@ class CreateWeddingsTable extends Migration
             $table->text('father_bride');
             $table->text('mother_bride');
             $table->text('image');
+            $table->string('photo_groom', 150);
+            $table->string('photo_bride', 150);
             $table->text('date_count');
+            $table->string('theme_name', 50);
             $table->timestamps();
         });
     }

@@ -12,9 +12,8 @@ class ConfirmShopping extends Controller
 {
     public function __invoke()
     {
-        $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->firstOrFail();
-        $shop->status = 1;
-        $shop->update();
+        $user = Auth::user();
+        $user->Shopping::where('status', 0)->firstOrFail()->update(['status' => 1]);
         return back();
     }
 }

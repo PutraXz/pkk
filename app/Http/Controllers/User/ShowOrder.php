@@ -13,9 +13,9 @@ class ShowOrder extends Controller
 {
     public function __invoke()
     {
-       $orders = Shopping::where('user_id', Auth::id())->where('status', 1 )->get();
-       $carbon = Carbon::now()->format('m/d/Y') ;
-       $orderz = Order::where('user_id', Auth::id())->get();
-       return view('users.order', compact('orders', 'orderz'));
+        $userId = Auth::id();
+        $orders = Shopping::where('user_id', $userId)->where('status', 1)->get();
+        $orderz = Order::where('user_id', $userId)->get();
+        return view('users.order', compact('orders', 'orderz'));
     }
 }

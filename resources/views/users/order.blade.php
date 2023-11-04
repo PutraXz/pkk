@@ -24,7 +24,6 @@
                                 <th>Tanggal</th>
                                 <th>Status</th>
                                 <th>Jumlah Harga</th>
-                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -37,9 +36,6 @@
                                     Sudah Dibayar
                                 </td>
                                 <td>Rp. {{ number_format($order->jumlah_harga) }}</td>
-                                <td>
-                                    <a href="{{ url('history') }}/{{ $order->id }}" class="btn btn-primary"><i class="fa fa-info"></i> Detail</a>
-                                </td>
                             </tr>
                             @endforeach
                         </tbody>

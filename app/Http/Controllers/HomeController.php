@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Shopping;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $getStatus= [];
+        $get = Shopping::where('user_id', Auth::id())->get();
+        foreach ($get as $status) {
+            $getStatus = $status;
+        }
+        return view('home', compact('getStatus'));
     }
 }

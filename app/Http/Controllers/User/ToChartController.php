@@ -11,14 +11,13 @@ class ToChartController extends Controller
 {
     public function __invoke(Request $request){
         try {
-            $id = $request->id;
-            $theme = Theme::where('id', $id)->first();
-            $shopp = new Shopping();
-            $shopp->theme_id = $id;
-            $shopp->user_id = Auth::id();
-            $shopp->jumlah_harga = $theme->price;
-            $test = $shopp->save();
-            Alert::success('Congrats', 'You\'ve Successfully Buy');
+            $theme = Theme::findOrFail($request->id);
+            Shopping::create([
+                'theme_id' => $theme->id,
+                'user_id' => Auth::id(),
+                'jumlah_harga' => $theme->price,
+            ]);
+            Alert::success('Congrats', 'You\'ve Successfully Bought');
             return back();
         } catch (\Throwable $th) {
             throw $th;

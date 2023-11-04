@@ -78,8 +78,8 @@ $files = $files = [
                         <p class="text-center">Kami berharap Anda menjadi bagian dari hari istimewa kami!</p>
                     </div>
                     <div class="row">
-                        <div class="col-md-8 col-12  offset-md-2 mx-auto d-md-block " >
-                            <div class="main mx-auto d-block mb-5">
+                        <div class="col-md-8 col-12  offset-md-2 mx-auto d-md-block" >
+                            <div class="main mx-auto d-block">
                                 <section>
                                     <ul id="countdown" class="justify-content-center d-flex mx-auto ">
                                         <li class="hari"><span class="days timenumbers pt-4">00</span>
@@ -132,7 +132,7 @@ $files = $files = [
                             </div>
                             <div class="desc-bride">
                                 <h3>{{$weddings->name_bride}}</h3>
-                                <p><span style="color: #bf9b73">Putri {{$weddings->child_bride}}</span><br>
+                                <p><span style="color: #bf9b73">Putri {{$weddings->child_bride}} dari</span><br>
                                     <span class="parents-font">Bapak {{$weddings->father_bride}}</span>
                                     <br>
                                     <span class="parents-font">Ibu {{$weddings->mother_bride}}</span>

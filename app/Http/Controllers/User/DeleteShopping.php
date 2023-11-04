@@ -10,8 +10,7 @@ class DeleteShopping extends Controller
 {
     public function __invoke($id)
     {
-        $shopp =  Shopping::find($id);
-        $shopp->delete();
+        $shop = Shopping::findOrFail($id)->delete();
         return back();
     }
 }

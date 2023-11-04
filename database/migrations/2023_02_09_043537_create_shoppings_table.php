@@ -21,6 +21,7 @@ class CreateShoppingsTable extends Migration
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->integer('status')->default(0);
             $table->integer('jumlah_harga');
+            $table->integer('status_wedding')->default(0);
             $table->timestamps();
         });
     }

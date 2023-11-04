@@ -164,7 +164,7 @@ body section {}
     }
     #countdown {
         width: 283px;
-        padding: 0 2px 0 34px;
+        padding: 0 2px 0 -35px;
         display: block !important;
     }
     #countdown .hari {
@@ -263,7 +263,7 @@ body section {}
     }
     #countdown {
         width: 283px;
-        padding: 0 2px 0 34px;
+        padding: 0 2px 0 -35px;
         display: block !important;
     }
     #countdown .hari {
