@@ -2,7 +2,6 @@
 
 @section('content')
     <!-- Begin Page Content -->
-    @if ($getStatus->status == 1)
         <form action="" method="post" enctype="multipart/form-data">
             @csrf
             <div class="container-fluid">
@@ -41,13 +40,13 @@
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ayah Pengantian</label>
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ayah Pengantin</label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control" required name="father_groom">
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ibu Pengantian</label>
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ibu Pengantin</label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control" required name="mother_groom">
                                     </div>
@@ -78,13 +77,13 @@
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ayah Pengantian</label>
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ayah Pengantin</label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control" required  name="father_bride">
                                     </div>
                                 </div>
                                 <div class="mb-2 row">
-                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ibu Pengantian</label>
+                                    <label for="staticEmail" class="col-sm-4 col-form-label">Ibu Pengantin</label>
                                     <div class="col-sm-6">
                                     <input type="text" class="form-control" required name="mother_bride">
                                     </div>
@@ -112,9 +111,6 @@
                 <button class="btn btn-secondary mt-3" type="submit">Kirim</button>
             </div>
         </form>
-    @else
-        <p>asdad</p>
-    @endif
 
     <!-- /.container-fluid -->
 @endsection

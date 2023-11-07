@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\User\Theme;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Theme;
-class ShowController extends Controller
+use Illuminate\Http\Request;
+
+class ThemeController extends Controller
 {
     public function __invoke()
     {
