@@ -43,6 +43,7 @@ Route::middleware('auth')->group(function () {
         Route::post('dashboard/admin/themes/{id}',[ThemeController::class, 'update'])->name('theme.update');
         Route::delete('dashboard/admin/themes/{id}', [ThemeController::class, 'destroy'])->name('theme.delete');
     });
+
     Route::group(['middleware' => 'check-level:user'], function (){
         Route::get('/product', UserTheme::class);
         Route::post('/product', ToChartController::class);
@@ -51,6 +52,7 @@ Route::middleware('auth')->group(function () {
         Route::get('confirm', [ShoppingController::class, 'confirm']);
         Route::delete('check-out/{id}', [ShoppingController::class, 'destroy']);
         Route::get('/order', [ShoppingController::class, 'index']);
+        
         // setting wedding
         Route::get('dashboard/setting-wedding', [WeddingController::class, 'index'])->name('wedding.index');
         Route::post('dashboard/setting-wedding', [WeddingController::class, 'store'])->name('wedding.store');;
