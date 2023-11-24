@@ -9,7 +9,7 @@ use App\Models\Theme;
 use Illuminate\Support\Facades\Auth;
 class ToChartController extends Controller
 {
-    public function __invoke(Request $request){
+    public function chart(Request $request){
         try {
             $theme = Theme::findOrFail($request->id);
             Shopping::create([
