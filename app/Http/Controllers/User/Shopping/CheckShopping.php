@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CheckShopping extends Controller
 {
-    public function __invoke(Request $request)
+    public function check(Request $request)
     {
         try {
             $shop = Shopping::where('user_id', Auth::user()->id)->where('status', 0)->get();
