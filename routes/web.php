@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
     Route::group(['middleware' => 'check-level:user'], function (){
         Route::get('/product', UserTheme::class);
         Route::post('/product', [ToChartController::class, 'chart']);
-        Route::get('/check-out', CheckShopping::class)->name('check-out');
+        Route::get('/check-out', User\Shopping\CheckShopping::class)->name('check-out');
         Route::post('check-out', [WebController::class, 'pay']);
         Route::get('confirm', [ShoppingController::class, 'confirm']);
         Route::delete('check-out/{id}', [ShoppingController::class, 'destroy']);
